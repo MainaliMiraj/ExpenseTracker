@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./IncomeExpensesBox.module.css";
-import { useExpenseTracker } from "../../ExpenseTrackerContext";
 
 const IncomeExpensesBox = () => {
-  const { totalIncome, totalExpenses } = useExpenseTracker();
+  const totalIncome = 0;
+  const totalExpenses = 0;
   return (
     <div className={styles.income_expenses}>
       <div className={styles.income}>

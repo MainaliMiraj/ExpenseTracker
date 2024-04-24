@@ -6,7 +6,8 @@ const NewTransaction = () => {
   const [amount, setAmount] = useState(0);
 
   function handleClick() {
-    console.log(transactionType, amount);
+    setTransactionType("");
+    setAmount("");
   }
   return (
     <div className={styles.container}>

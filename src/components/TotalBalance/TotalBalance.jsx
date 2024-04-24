@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./TotalBalance.module.css";
-import { useExpenseTracker } from "../../ExpenseTrackerContext";
+
 
 const TotalBalance = () => {
-  const { totalBalance } = useExpenseTracker();
+ const totalBalance=0
   const colorClass = totalBalance < 0 ? styles.red : styles.green;
   return (
     <div className={styles.show_balance}>
