@@ -12,8 +12,6 @@ const TransactionHistory = () => {
         <TransactionBox amount={-345} transactionType={"Rent"} />
         <TransactionBox amount={1234} transactionType={"Salary"} />
         <TransactionBox amount={-900} transactionType={"Laptop Purchase"} />
-        
-        
       </div>
     </div>
   );

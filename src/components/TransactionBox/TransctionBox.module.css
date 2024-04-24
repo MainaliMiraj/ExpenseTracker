@@ -5,6 +5,12 @@
   background-color: white;
   padding: 0.75rem;
   border-radius: 2px;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   box-shadow: 0px 0px 2px #888888;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
 }
