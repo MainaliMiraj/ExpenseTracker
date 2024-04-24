@@ -1,4 +1,38 @@
 .container {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
+  font-family: "Times New Roman", Times, serif;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  font-size: larger;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(145, 136, 136);
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+}
+.title {
+  font-weight: bolder;
+  margin-bottom: 0.25rem;
+  font-family: inherit;
+  font-weight: bold;
+}
+.input {
+  padding: 0.6rem;
+  font-family: inherit;
+}
+.submit {
+  padding: 0.6rem;
+  font-family: inherit;
+  cursor: pointer;
+  background: rgb(182, 125, 235);
+  border: none;
+  color: white;
+  padding: 1rem;
+}
+
+.submit:hover{
+    background-color: rgb(170, 92, 243);
 }

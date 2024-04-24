@@ -5,11 +5,10 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   display: flex;
   flex-direction: column;
-  gap:0.5rem;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  background:whitesmoke;
-  
+  background: whitesmoke;
 }
 .line {
   width: 100%;
@@ -18,6 +17,16 @@
   margin: 0 10px;
   margin-bottom: 10px;
 }
-.history{
+.history {
   font-weight: bolder;
+}
+.TransactionHistory{
+  gap: 0.1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  max-height: 180px;
+  min-height: 180px;
 }
