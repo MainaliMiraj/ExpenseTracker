@@ -3,15 +3,21 @@ import styles from "./TransactionHistory.module.css";
 import { TransactionBox } from "../TransactionBox/TransactionBox";
 
 const TransactionHistory = () => {
+  const transactions = [];
+
   return (
     <div className={styles.container}>
       <div className={styles.history}>History</div>
       <div className={styles.line}></div>
       <div className={styles.TransactionHistory}>
-        <TransactionBox amount={564} transactionType={"Cash"} />
-        <TransactionBox amount={-345} transactionType={"Rent"} />
-        <TransactionBox amount={1234} transactionType={"Salary"} />
-        <TransactionBox amount={-900} transactionType={"Laptop Purchase"} />
+        {transactions.length === 0
+          ? "No transactions available."
+          : transactions.map((eachTranaction) => (
+              <TransactionBox
+                transactionType={eachTranaction.type}
+                amount={eachTranaction.amount}
+              />
+            ))}
       </div>
     </div>
   );

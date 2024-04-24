@@ -10,8 +10,10 @@
   position: relative;
   left: 10%;
   align-items: center;
+  font-weight: bolder;
 }
 .line {
+  position: absolute;
   height: 80%;
   width: 1px;
   background-color: gray;
@@ -23,11 +25,9 @@
 }
 .expenses_amount {
   color: red;
-  padding: 5px;
+  margin: 10px;
 }
 .income_amount {
   color: green;
-  padding: 5px;
+  margin: 10px;
 }
-
-
