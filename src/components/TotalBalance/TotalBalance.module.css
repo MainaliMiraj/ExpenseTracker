@@ -1,0 +1,10 @@
+.show_balance {
+  padding: 1rem;
+}
+.balance_title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.balance_amount {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+}
