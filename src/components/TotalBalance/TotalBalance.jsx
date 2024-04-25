@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./TotalBalance.module.css";
-
+import ExpenseContext from "../../context/ExpenseContext";
 
 const TotalBalance = () => {
- const totalBalance=0
-  const colorClass = totalBalance < 0 ? styles.red : styles.green;
+  const { expenseData } = useContext(ExpenseContext);
+  const colorClass = expenseData.totalBalance < 0 ? styles.red : styles.green;
   return (
     <div className={styles.show_balance}>
       <div className={styles.balance_title}>YOUR BALANCE</div>
       <div className={`${styles.balance_amount} ${colorClass}`}>
-        ${totalBalance}
+        ${expenseData.totalBalance}
       </div>
     </div>
   );
