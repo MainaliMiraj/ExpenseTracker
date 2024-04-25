@@ -5,39 +5,52 @@ import ExpenseContext from "../../context/ExpenseContext";
 
 const NewTransaction = () => {
   const { expenseData, setExpenseData } = useContext(ExpenseContext);
-  const [transactionType, setTransactionType] = useState("");
+  const [transactionType, setTransactionType] = useState(""); // Initialize transactionType state
   const [amount, setAmount] = useState("");
-  let totalIncome = 0;
-  let totalExpense = 0;
 
   function handleClick() {
     if (!transactionType || !amount) {
       alert("Please enter both Transaction type and amount.");
+      return;
     }
+
+    const newAmount =
+      transactionType === "expense" ? -parseFloat(amount) : parseFloat(amount);
+
     const newTransaction = {
       type: transactionType,
-      amount: parseFloat(amount),
+      amount: parseFloat(newAmount),
     };
-    if (amount < 0) {
-      totalExpense = totalExpense + amount;
-    } else {
-      totalIncome = totalIncome + amount;
+
+    // Update total balance based on the new amount
+    const newTotalBalance = expenseData.totalBalance + newAmount;
+
+    // Update total income and total expense based on transaction type
+    let newTotalIncome = expenseData.totalIncome;
+    let newTotalExpense = expenseData.totalExpense;
+    if (transactionType === "income") {
+      newTotalIncome += parseFloat(amount);
+    } else if (transactionType === "expense") {
+      newTotalExpense -= parseFloat(amount);
     }
 
-    const newTotalBalance = (expenseData.totalBalance =
-      parseFloat(amount) + expenseData.totalBalance);
-
+    // Create new array of transactions including the new transaction
     const newTransactions = [...expenseData.transactions, newTransaction];
 
+    // Update expenseData with new values
     setExpenseData({
       ...expenseData,
       totalBalance: newTotalBalance,
       transactions: newTransactions,
+      totalIncome: newTotalIncome,
+      totalExpense: newTotalExpense,
     });
 
+    // Reset input fields
     setTransactionType("");
     setAmount("");
   }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>Add a new Transaction</div>
@@ -52,9 +65,6 @@ const NewTransaction = () => {
         value={transactionType}
       />
       <div className={styles.amount}>Amount:</div>
-      <p style={{ fontSize: "small", color: "orange" }}>
-        Include '-'' if its an expense.
-      </p>
       <input
         type="number"
         className={styles.input}
@@ -80,6 +90,8 @@ const NewTransaction = () => {
             id="income"
             name="transactionType"
             value="income"
+            onChange={() => setTransactionType("income")} // Update transactionType state for income
+            checked={transactionType === "income"} // Check if the current transactionType is "income"
           />
           <label htmlFor="income">Income</label>
         </div>
@@ -90,6 +102,8 @@ const NewTransaction = () => {
             id="expense"
             value="expense"
             name="transactionType"
+            onChange={() => setTransactionType("expense")} // Update transactionType state for expense
+            checked={transactionType === "expense"} // Check if the current transactionType is "expense"
           />
           <label htmlFor="expense">Expense</label>
         </div>
